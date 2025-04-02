@@ -1,0 +1,45 @@
+:root {
+    --green-dark: #0A3622;
+    --green-medium: #155D36;
+    --green-light: #1C7C4A;
+    --charcoal: #1A1A1A;
+    --off-white: #F5F5F5;
+    --soft: #F5F7F9;
+    --softer: #F9FAFB;
+}
+
+.bg-green-dark {
+    background-color: var(--green-dark);
+}
+
+.bg-green-medium {
+    background-color: var(--green-medium);
+}
+
+.bg-green-light {
+    background-color: var(--green-light);
+}
+
+.text-green-dark {
+    color: var(--green-dark);
+}
+
+.text-green-medium {
+    color: var(--green-medium);
+}
+
+.text-green-light {
+    color: var(--green-light);
+}
+
+.border-green-dark {
+    border-color: var(--green-dark);
+}
+
+.border-green-medium {
+    border-color: var(--green-medium);
+}
+
+.border-green-light {
+    border-color: var(--green-light);
+}
