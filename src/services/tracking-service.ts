@@ -3,7 +3,7 @@
  */
 
 // Base API URL - Set this based on your Django development server
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL + '/api' || 'http://localhost:8000/api';
+const API_BASE_URL = 'greenwaylogst.pythonanywhere.com' + '/api' || 'http://localhost:8000/api';
 
 export interface TrackingResponse {
     shipment: any;
