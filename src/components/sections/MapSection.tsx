@@ -202,8 +202,8 @@ export default function MapSection() {
                                 }}
                                 asChild
                             >
-                                <Link href="/network" className="flex items-center gap-2">
-                                    <span>Explore Our Network</span>
+                                <Link href="/services" className="flex items-center gap-2">
+                                    <span>Explore Our Services</span>
                                     <Icons.chevronRight className="h-5 w-5" />
                                 </Link>
                             </Button>

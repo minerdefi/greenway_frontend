@@ -13,19 +13,19 @@ const footerLinks = {
         { name: "Freight", href: "/services/freight" },
         { name: "Cargo Shipping", href: "/services/cargo-shipping" },
         { name: "Packaging & Storage", href: "/services/packaging-storage" },
+
+    ],
+    company: [
         { name: "Warehousing", href: "/services/warehousing" },
         { name: "Door to Door Delivery", href: "/services/door-to-door" },
         { name: "Transportation", href: "/services/transportation" },
-    ],
-    company: [
-        { name: "About Us", href: "/about" },
-        { name: "Sustainability", href: "/sustainability" },
-        { name: "Careers", href: "/careers" },
+
+
     ],
     resources: [
         { name: "Blog", href: "/blog" },
-        { name: "FAQs", href: "/faq" },
-        { name: "Partners", href: "/partners" },
+        { name: "About Us", href: "/about" },
+
     ],
     contact: [
         {
@@ -34,7 +34,7 @@ const footerLinks = {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
             ),
-            text: "support@greenwaylogistics.com"
+            text: "support@greenwaylogst.com"
         },
         {
             icon: (
@@ -51,7 +51,7 @@ const footerLinks = {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
             ),
-            text: "123 Green Street, Eco City"
+            text: "31-00 47th Ave, Long Island City, NY"
         },
     ],
 };
@@ -90,7 +90,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-semibold mb-4">Company</h3>
+                        <h3 className="text-lg font-semibold mb-4"></h3>
                         <ul className="space-y-2">
                             {footerLinks.company.map((link) => (
                                 <li key={link.href}>
@@ -119,9 +119,14 @@ export function Footer() {
                         <h3 className="text-lg font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2">
                             {footerLinks.contact.map((item, index) => (
-                                <li key={index} className="flex items-center gap-2">
-                                    {React.cloneElement(item.icon, { className: "h-5 w-5 text-green-light", style: { color: '#1C7C4A' } })}
-                                    {item.text}
+                                <li key={index} className="flex items-start gap-2">
+                                    <span className="flex-shrink-0 mt-1">
+                                        {React.cloneElement(item.icon, {
+                                            className: "h-5 w-5 text-green-light",
+                                            style: { color: '#1C7C4A' }
+                                        })}
+                                    </span>
+                                    <span className="break-all">{item.text}</span>
                                 </li>
                             ))}
                         </ul>

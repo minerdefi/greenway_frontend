@@ -386,17 +386,17 @@ export default function ContactPage() {
                                         {
                                             icon: "📍",
                                             title: "Main Address",
-                                            content: "123 Sustainability Road<br />EcoCity, EC 12345<br />United States"
+                                            content: "31-00 47th Ave,<br /> Long Island City, NY<br />United States"
                                         },
                                         {
                                             icon: "📞",
                                             title: "Phone Numbers",
-                                            content: "<a href='tel:+1-901-445-0394' class='hover:text-green-dark transition-colors block text-sm md:text-base'>Main: +1-901-445-0394</a><a href='tel:+1-901-445-0394' class='hover:text-green-dark transition-colors block mt-1 text-sm md:text-base'>Support: +1-901-445-0394</a>"
+                                            content: "<a href='tel:+1-901-445-0394' class='hover:text-green-dark transition-colors block mt-1 text-sm md:text-base'>Support: +1-901-445-0394</a>"
                                         },
                                         {
                                             icon: "✉️",
                                             title: "Email",
-                                            content: "<a href='mailto:info@greenwaylogistics.com' class='hover:text-green-dark transition-colors block text-sm md:text-base break-words'>info@greenwaylogistics.com</a><a href='mailto:support@greenwaylogistics.com' class='hover:text-green-dark transition-colors block mt-1 text-sm md:text-base break-words'>support@greenwaylogistics.com</a>"
+                                            content: "<a href='mailto:support@greenwaylogst.com' class='hover:text-green-dark transition-colors block text-sm md:text-base break-words'>support@greenwaylogst.com</a>"
                                         },
                                         {
                                             icon: "🕒",
@@ -441,8 +441,8 @@ export default function ContactPage() {
                                             <div className="md:w-1/2">
                                                 <h3 className="text-lg font-semibold mb-2">Main Headquarters</h3>
                                                 <p className="text-gray-700 mb-4">
-                                                    123 Sustainability Road<br />
-                                                    EcoCity, EC 12345<br />
+                                                    31-00 47th Ave,<br />
+                                                    Long Island City, NY<br />
                                                     United States
                                                 </p>
                                                 <div className="flex items-center text-green-dark mb-2">
@@ -455,7 +455,7 @@ export default function ContactPage() {
                                                     <svg className="h-4 w-4 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                     </svg>
-                                                    <a href="mailto:info@greenwaylogistics.com" className="hover:underline text-sm md:text-base break-words">info@greenwaylogistics.com</a>
+                                                    <a href="mailto:support@greenwaylogst.com" className="hover:underline text-sm md:text-base break-words">support@greenwaylogst.com</a>
                                                 </div>
                                             </div>
                                             <div className="md:w-1/2 h-64 md:h-auto">
