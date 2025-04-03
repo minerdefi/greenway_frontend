@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Ensure the API URL has the correct structure without trailing slashes
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/+$/, '') : 'http://localhost:8000';
 
 /**
  * Submit a new quote request to the backend
@@ -8,7 +9,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
  */
 export async function submitQuote(quoteData: any) {
     try {
-        // Fix the API URL to avoid duplicate /api prefix
+        console.log(`Submitting quote to: ${API_BASE_URL}/api/quotes/submit/`);
         const response = await axios.post(`${API_BASE_URL}/api/quotes/submit/`, quoteData);
         return response.data;
     } catch (error: any) {
@@ -23,7 +24,7 @@ export async function submitQuote(quoteData: any) {
  */
 export async function getQuoteStatus(quoteId: string) {
     try {
-        // Fix the API URL to avoid duplicate /api prefix
+        console.log(`Getting quote status from: ${API_BASE_URL}/api/quotes/${quoteId}/`);
         const response = await axios.get(`${API_BASE_URL}/api/quotes/${quoteId}/`);
         return response.data;
     } catch (error: any) {
