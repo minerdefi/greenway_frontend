@@ -7,6 +7,7 @@
     "build": "next build --no-lint",
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:deploy": "npx wrangler pages deploy .vercel/output/static --project-name greenway-frontend",
+    "deploy": "npm run pages:build && npm run pages:deploy",
     "start": "next start",
     "lint": "next lint"
   },
