@@ -1,0 +1,174 @@
+[
+    {
+        "trackingNumber": "GW987654321",
+        "status": "delivered",
+        "service": "Express Air",
+        "weight": "2.5 kg",
+        "dimensions": "30x20x10 cm",
+        "co2Saved": "1.2 kg",
+        "origin": "New York, USA",
+        "destination": "Los Angeles, USA",
+        "currentLocation": "Los Angeles, USA",
+        "deliveredDate": "2023-10-15 14:30",
+        "signedBy": "J. Smith",
+        "sender": {
+            "name": "Greenway Logistics NY",
+            "address": "123 Logistics Way, New York, NY 10001",
+            "phone": "+1 212-555-0123",
+            "email": "ny-hub@greenway.com"
+        },
+        "receiver": {
+            "name": "John Doe",
+            "address": "456 Sunset Blvd, Los Angeles, CA 90028",
+            "phone": "+1 323-555-0123",
+            "email": "john.doe@example.com"
+        },
+        "history": [
+            {
+                "date": "2023-10-15 14:30",
+                "status": "Delivered",
+                "location": "Los Angeles, USA",
+                "description": "Package delivered to recipient"
+            },
+            {
+                "date": "2023-10-15 08:00",
+                "status": "Out for Delivery",
+                "location": "Los Angeles, USA",
+                "description": "Package is out for delivery"
+            },
+            {
+                "date": "2023-10-14 18:00",
+                "status": "Arrived at Facility",
+                "location": "Los Angeles, USA",
+                "description": "Package arrived at local distribution center"
+            },
+            {
+                "date": "2023-10-13 10:00",
+                "status": "In Transit",
+                "location": "Denver, USA",
+                "description": "Package in transit to destination"
+            },
+            {
+                "date": "2023-10-12 15:00",
+                "status": "Picked Up",
+                "location": "New York, USA",
+                "description": "Package picked up from sender"
+            }
+        ],
+        "payment": {
+            "shipping": 25.00,
+            "insurance": 5.00,
+            "taxes": 2.50,
+            "total": 32.50,
+            "currency": "USD",
+            "status": "paid",
+            "method": "Credit Card",
+            "date": "2023-10-12",
+            "invoiceNumber": "INV-987654321"
+        }
+    },
+    {
+        "trackingNumber": "GW456789123",
+        "status": "processing",
+        "service": "Standard Ground",
+        "weight": "5.0 kg",
+        "dimensions": "40x30x20 cm",
+        "co2Saved": "0.8 kg",
+        "origin": "Chicago, USA",
+        "destination": "Miami, USA",
+        "currentLocation": "Chicago, USA",
+        "estimatedDelivery": "2023-10-20",
+        "sender": {
+            "name": "Greenway Logistics CHI",
+            "address": "789 Windy City Ave, Chicago, IL 60601",
+            "phone": "+1 312-555-0123",
+            "email": "chi-hub@greenway.com"
+        },
+        "receiver": {
+            "name": "Jane Smith",
+            "address": "321 Ocean Dr, Miami, FL 33139",
+            "phone": "+1 305-555-0123",
+            "email": "jane.smith@example.com"
+        },
+        "history": [
+            {
+                "date": "2023-10-16 09:00",
+                "status": "Processing",
+                "location": "Chicago, USA",
+                "description": "Shipment information received"
+            }
+        ],
+        "payment": {
+            "shipping": 15.00,
+            "insurance": 2.00,
+            "taxes": 1.50,
+            "total": 18.50,
+            "currency": "USD",
+            "status": "pending",
+            "method": "Bank Transfer",
+            "dueDate": "2023-10-20",
+            "invoiceNumber": "INV-456789123"
+        }
+    },
+    {
+        "trackingNumber": "GWINT123456",
+        "status": "in-transit",
+        "service": "International Priority",
+        "weight": "1.2 kg",
+        "dimensions": "20x15x10 cm",
+        "co2Saved": "3.5 kg",
+        "origin": "London, UK",
+        "destination": "Paris, France",
+        "currentLocation": "Dover, UK",
+        "estimatedDelivery": "2023-10-18",
+        "sender": {
+            "name": "Greenway Logistics UK",
+            "address": "10 Downing St, London, UK",
+            "phone": "+44 20 7925 0918",
+            "email": "uk-hub@greenway.com"
+        },
+        "receiver": {
+            "name": "Pierre Dubois",
+            "address": "12 Rue de la Paix, Paris, France",
+            "phone": "+33 1 23 45 67 89",
+            "email": "pierre.dubois@example.com"
+        },
+        "history": [
+            {
+                "date": "2023-10-16 14:00",
+                "status": "In Transit",
+                "location": "Dover, UK",
+                "description": "Arrived at port of exit"
+            },
+            {
+                "date": "2023-10-16 08:00",
+                "status": "Departed Facility",
+                "location": "London, UK",
+                "description": "Departed from origin facility"
+            },
+            {
+                "date": "2023-10-15 16:00",
+                "status": "Picked Up",
+                "location": "London, UK",
+                "description": "Package picked up"
+            }
+        ],
+        "customs": {
+            "status": "cleared",
+            "entryNumber": "E123456789",
+            "clearedDate": "2023-10-16 10:00"
+        },
+        "payment": {
+            "shipping": 45.00,
+            "insurance": 10.00,
+            "customsDuties": 15.00,
+            "taxes": 5.00,
+            "total": 75.00,
+            "currency": "EUR",
+            "status": "paid",
+            "method": "PayPal",
+            "date": "2023-10-15",
+            "invoiceNumber": "INV-INT123456"
+        }
+    }
+]

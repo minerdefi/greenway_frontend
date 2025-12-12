@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { trackShipment } from "@/services/trackingService";
+import { getTrackingInfo } from "@/services/tracking-service";
 
 export function TrackingForm({ onResultReceived }: { onResultReceived: (data: any) => void }) {
     const [trackingNumber, setTrackingNumber] = useState("");
@@ -22,7 +22,7 @@ export function TrackingForm({ onResultReceived }: { onResultReceived: (data: an
         }
 
         try {
-            const result = await trackShipment(trackingNumber.trim());
+            const result = await getTrackingInfo(trackingNumber.trim());
             if (result.shipment) {
                 onResultReceived(result.shipment);
             } else {

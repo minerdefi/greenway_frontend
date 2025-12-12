@@ -27,15 +27,6 @@ const staggerContainer = {
     }
 };
 
-// Demo tracking numbers for easy testing
-const demoTrackingNumbers = [
-    { id: "GW987654321", status: "Delivered", description: "USA Domestic" },
-    { id: "GW456789123", status: "Processing", description: "USA Domestic" },
-    { id: "GWINT123456", status: "In Transit", description: "UK to France (Cleared)" },
-    { id: "GWASIA7890", status: "In Transit", description: "Japan to Korea (In Customs)" },
-    { id: "GWCUST5678", status: "In Transit", description: "Germany to USA (Customs Hold)" }
-];
-
 export default function TrackingPage() {
     const [viewportHeight, setViewportHeight] = useState("100vh");
     const [isMobile, setIsMobile] = useState(false);
@@ -44,7 +35,6 @@ export default function TrackingPage() {
     const [isSearching, setIsSearching] = useState(false);
     const [error, setError] = useState("");
     const [recentSearches, setRecentSearches] = useState<string[]>([]);
-    const [isAPIMode, setIsAPIMode] = useState(true);
 
     useEffect(() => {
         function updateViewportHeight() {
@@ -81,37 +71,17 @@ export default function TrackingPage() {
         setError("");
 
         try {
-            if (isAPIMode) {
-                // Call the backend API service
-                const result = await getTrackingInfo(numberToSearch);
+            // Call the service (which now uses local JSON)
+            const result = await getTrackingInfo(numberToSearch);
 
-                if (result.error) {
-                    setError(result.error);
-                    setShipmentData(null);
-                } else {
-                    setShipmentData(result.shipment);
-
-                    // Save to recent searches
-                    updateRecentSearches(numberToSearch);
-                }
+            if (result.error) {
+                setError(result.error);
+                setShipmentData(null);
             } else {
-                // Use mock data for demo/fallback
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+                setShipmentData(result.shipment);
 
-                // Check if tracking number exists in our mock data
-                const mockData = demoTrackingNumbers.find(item => item.id === numberToSearch);
-                if (mockData) {
-                    // Get the detailed mock data
-                    // @ts-ignore - Access mock shipment data by tracking number
-                    const mockShipment = shipmentStatuses[numberToSearch];
-                    setShipmentData(mockShipment);
-
-                    // Save to recent searches
-                    updateRecentSearches(numberToSearch);
-                } else {
-                    setError("No shipment found with this tracking number");
-                    setShipmentData(null);
-                }
+                // Save to recent searches
+                updateRecentSearches(numberToSearch);
             }
         } catch (err) {
             setError("An error occurred while tracking your shipment");
@@ -135,12 +105,6 @@ export default function TrackingPage() {
         setTrackingNumber("");
         setShipmentData(null);
         setError("");
-    };
-
-    // Toggle between API and mock data mode (for development/testing)
-    const toggleMode = () => {
-        setIsAPIMode(!isAPIMode);
-        clearSearch();
     };
 
     return (
@@ -231,17 +195,6 @@ export default function TrackingPage() {
                     >
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-2xl font-bold text-gray-900">Enter Tracking Number</h2>
-
-                            {/* Only show mode toggle in development */}
-                            {process.env.NODE_ENV === 'development' && (
-                                <div
-                                    className="text-xs px-2 py-1 rounded bg-gray-100 cursor-pointer hover:bg-gray-200"
-                                    onClick={toggleMode}
-                                    title="Toggle between API and mock data"
-                                >
-                                    {isAPIMode ? 'Using API' : 'Using Mock Data'}
-                                </div>
-                            )}
                         </div>
 
                         <form onSubmit={handleSearch} className="space-y-6">
@@ -294,43 +247,6 @@ export default function TrackingPage() {
 
                     {/* Tracking Results */}
                     {shipmentData && <TrackingResults shipment={shipmentData} onBackClick={clearSearch} />}
-
-                    {/* Demo tracking numbers */}
-                    {!shipmentData && (
-                        <motion.div
-                            className="max-w-3xl mx-auto mt-12 p-6 bg-green-50 rounded-lg border border-green-100"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.3, duration: 0.5 }}
-                        >
-                            <h3 className="font-medium text-green-dark mb-3">Demo Tracking Numbers</h3>
-                            <p className="text-gray-700 mb-4">Try these sample tracking numbers to see different shipment statuses:</p>
-                            <div className="space-y-2">
-                                {demoTrackingNumbers.map((item) => (
-                                    <div key={item.id} className="flex flex-col xs:flex-row xs:items-center xs:justify-between p-3 bg-white rounded-md">
-                                        <div className="mb-2 xs:mb-0">
-                                            <span className="font-medium">{item.id}</span>
-                                            <div className="mt-1 flex flex-wrap gap-2">
-                                                <span className="text-xs px-2 py-0.5 bg-gray-100 rounded-full">{item.status}</span>
-                                                <span className="text-xs px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full">{item.description}</span>
-                                            </div>
-                                        </div>
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            className="text-green-dark hover:text-green-dark hover:bg-green-50 w-full xs:w-auto"
-                                            onClick={(e) => {
-                                                setTrackingNumber(item.id);
-                                                handleSearch(e as any, item.id);
-                                            }}
-                                        >
-                                            Track
-                                        </Button>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
                 </div>
             </section>
 

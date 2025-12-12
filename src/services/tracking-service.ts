@@ -1,9 +1,4 @@
-/**
- * Service for tracking-related API calls
- */
-
-// Base API URL - Set this based on your Django development server
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL + '/api' || '/api';
+import trackingData from '@/data/trackingData.json';
 
 export interface TrackingResponse {
     shipment: any;
@@ -17,23 +12,21 @@ export interface TrackingResponse {
  */
 export async function getTrackingInfo(trackingNumber: string): Promise<TrackingResponse> {
     try {
-        const response = await fetch(`${API_BASE_URL}/tracking/?tracking=${encodeURIComponent(trackingNumber)}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 800));
 
-        const data = await response.json();
+        const shipment = trackingData.find(
+            (item: any) => item.trackingNumber.toLowerCase() === trackingNumber.toLowerCase()
+        );
 
-        if (!response.ok) {
+        if (!shipment) {
             return {
                 shipment: null,
-                error: data.error || 'Failed to retrieve tracking information'
+                error: 'No shipment found with this tracking number'
             };
         }
 
-        return { shipment: data.shipment };
+        return { shipment };
     } catch (error) {
         console.error('Error fetching tracking data:', error);
         return {
@@ -50,30 +43,10 @@ export async function getTrackingInfo(trackingNumber: string): Promise<TrackingR
  * @returns Updated shipment data or error
  */
 export async function addTrackingEvent(trackingNumber: string, event: any): Promise<TrackingResponse> {
-    try {
-        const response = await fetch(`${API_BASE_URL}/tracking/event/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ tracking_number: trackingNumber, event }),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            return {
-                shipment: null,
-                error: data.error || 'Failed to update tracking information'
-            };
-        }
-
-        return { shipment: data.shipment };
-    } catch (error) {
-        console.error('Error updating tracking data:', error);
-        return {
-            shipment: null,
-            error: 'An unexpected error occurred. Please try again.'
-        };
-    }
+    // This is a mock implementation since we can't write to the JSON file in the browser/client
+    console.log('Mock adding event:', trackingNumber, event);
+    return {
+        shipment: null,
+        error: 'Update functionality is not available in demo mode'
+    };
 }
