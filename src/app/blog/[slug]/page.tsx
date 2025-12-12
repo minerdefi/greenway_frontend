@@ -10,6 +10,8 @@ import { Footer } from "@/components/ui/footer";
 import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogData";
 import { Input } from "@/components/ui/input";
 
+export const runtime = 'edge';
+
 // Animation variants
 const fadeIn = {
     hidden: { opacity: 0, y: 20 },
